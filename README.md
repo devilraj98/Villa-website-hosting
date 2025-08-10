@@ -1,7 +1,7 @@
-<br> Clone the website using git clone  </br>
-change directory 
-build the image using docker build -t my-static-site .
-run the container using docker run -d -p 8000:80 my-static-site
+<br>1. Clone the website using git clone  </br>
+<br>2. change directory </br>
+<br>3. build the image using docker build -t my-static-site .</br>
+<br>4. run the container using docker run -d -p 8000:80 my-static-site </br>
 
 than the websie looks like this------
 <img width="3200" height="1904" alt="image" src="https://github.com/user-attachments/assets/bfa9078e-ffe6-4fa7-81fd-0581f907fd3f" />
