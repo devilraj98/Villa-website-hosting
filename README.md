@@ -1,4 +1,4 @@
-Clone the website using git clone
+<br> Clone the website using git clone  </br>
 change directory 
 build the image using docker build -t my-static-site .
 run the container using docker run -d -p 8000:80 my-static-site
