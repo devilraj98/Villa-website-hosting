@@ -1,5 +1,5 @@
 <br>1. Clone the website using git clone  </br>
-<br>2. change directory </br>
+<br>2. change directory using cd </br>
 <br>3. build the image using docker build -t my-static-site .</br>
 <br>4. run the container using docker run -d -p 8000:80 my-static-site </br>
 <br>5. 
