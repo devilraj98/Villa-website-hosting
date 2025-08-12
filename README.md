@@ -35,9 +35,11 @@ This project demonstrates a fully automated CI/CD pipeline for hosting a static 
 - Create pipeline using `Jenkinsfile`
 
 ### 3. Dockerfile Example
-```Dockerfile
-FROM nginx:alpine
-COPY . /usr/share/nginx/html
+ - Remove the files using RUN rm -rf /usr/share/nginx/html/*
+ - copy the website using COPY . /usr/share/nginx/htm
+ - expose the port 80
+ - Run Nginx in background using RUN rm -rf /usr/share/nginx/html/*
+
 ### 4. Jenkins file Example.
 pipeline {
     agent any
@@ -59,9 +61,12 @@ pipeline {
         }
     }
 }
+
 <br> than the websie looks like this------</br>
 <img width="3200" height="1904" alt="image" src="https://github.com/user-attachments/assets/bfa9078e-ffe6-4fa7-81fd-0581f907fd3f" />
 <img width="3200" height="1904" alt="image" src="https://github.com/user-attachments/assets/64525e57-5b61-4686-86a1-9d8434283881" />
 <img width="3200" height="1904" alt="image" src="https://github.com/user-attachments/assets/101b6da1-23cb-4ba4-b48e-7856b3773495" />
 <img width="3200" height="1904" alt="image" src="https://github.com/user-attachments/assets/9ec5a40a-397a-416f-bc60-d9410ebfa86f" />
+
+
 
