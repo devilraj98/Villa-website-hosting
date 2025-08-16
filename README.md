@@ -1,113 +1,112 @@
-# Villa Website Hosting on AWS S3
+# 🏠 Villa Website Hosting Project
 
-This Terraform project deploys a villa website to AWS S3 with static website hosting configuration.
+A complete solution for hosting a beautiful villa website using **AWS S3** and **Terraform** infrastructure as code.
 
-## 🏗️ Infrastructure Components
+## 🌟 Project Overview
 
-- **S3 Bucket**: Configured for static website hosting
-- **Public Access**: Enabled for website access
-- **Bucket Policy**: Allows public read access
-- **Website Configuration**: Index and error document setup
-- **File Uploads**: All website assets uploaded individually
+This project demonstrates how to deploy a static villa website to AWS S3 using Terraform. The website showcases luxury properties with a modern, responsive design.
 
-## 📁 Project Structure
+## 🎯 What You'll Get
 
-```
-Villa-website-hosting/
-├── main.tf                 # Main Terraform configuration
-├── .gitignore             # Git ignore file
-├── README.md              # Project documentation
-├── index.html             # Main website page
-├── contact.html           # Contact page
-├── properties.html        # Properties listing page
-├── property-details.html  # Property details page
-├── assets/                # Website assets
-│   ├── css/              # Stylesheets
-│   ├── js/               # JavaScript files
-│   ├── images/           # Image files
-│   └── webfonts/         # Font files
-└── vendor/               # Third-party libraries
-    ├── bootstrap/        # Bootstrap framework
-    └── jquery/           # jQuery library
-```
+- ✅ **Live Website**: Fully functional villa property website
+- ✅ **AWS S3 Hosting**: Scalable and cost-effective hosting
+- ✅ **Infrastructure as Code**: Reproducible deployments with Terraform
+- ✅ **Professional Setup**: Production-ready configuration
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-
-- AWS CLI configured with appropriate credentials
+- AWS Account with appropriate permissions
 - Terraform installed (version >= 1.0)
-- Git for version control
+- AWS CLI configured
 
-### Deployment Steps
+### Deploy in 3 Steps
 
-1. **Clone the repository**
+1. **Clone & Navigate**
    ```bash
    git clone <your-repo-url>
    cd Villa-website-hosting
    ```
 
-2. **Initialize Terraform**
+2. **Deploy Infrastructure**
    ```bash
    terraform init
-   ```
-
-3. **Plan the deployment**
-   ```bash
-   terraform plan
-   ```
-
-4. **Apply the configuration**
-   ```bash
    terraform apply
    ```
 
-5. **Access your website**
-   Visit the `website_endpoint` URL from the Terraform output.
+3. **Access Your Website**
+   Visit the URL from the Terraform output!
 
-## 🔧 Configuration Details
+## 📱 Website Features
 
-### S3 Bucket Configuration
-- **Bucket Name**: `villa-website-hosting-{random-suffix}`
-- **Region**: `us-east-1`
-- **Public Access**: Enabled for website hosting
-- **Website Configuration**: 
-  - Index Document: `index.html`
-  - Error Document: `index.html`
+- **Responsive Design**: Works on all devices
+- **Property Showcase**: Beautiful property listings
+- **Contact Forms**: Easy customer communication
+- **Modern UI**: Professional villa presentation
+- **Fast Loading**: Optimized for performance
 
-### File Uploads
-The configuration uploads all website files individually with proper content types:
-- **HTML Files**: `text/html`
-- **CSS Files**: `text/css`
-- **JavaScript Files**: `application/javascript`
-- **Images**: `image/jpeg`, `image/png`
-- **Fonts**: `font/ttf`, `font/woff2`
+## 🏗️ Architecture
 
-## 🛡️ Security Features
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Your Code     │───▶│   Terraform     │───▶│   AWS S3        │
+│   (HTML/CSS/JS) │    │   (IaC)         │    │   (Hosting)     │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+```
 
-- **Public Access Block**: Configured to allow public read access
-- **Bucket Policy**: Restricts access to read-only operations
-- **Ownership Controls**: Set to bucket owner preferred
+## 📁 Project Structure
 
-## 📊 Outputs
+```
+Villa-website-hosting/
+├── 📄 main.tf              # Terraform configuration
+├── 📖 README.md            # This file
+├── 📋 README-TERRAFORM.md  # Technical documentation
+├── 🏠 index.html           # Homepage
+├── 📞 contact.html         # Contact page
+├── 🏘️ properties.html      # Properties listing
+├── 🏡 property-details.html # Property details
+├── 🎨 assets/              # Website assets
+│   ├── css/               # Stylesheets
+│   ├── js/                # JavaScript
+│   ├── images/            # Property images
+│   └── webfonts/          # Fonts
+└── 📚 vendor/             # Third-party libraries
+    ├── bootstrap/         # Bootstrap framework
+    └── jquery/            # jQuery library
+```
 
-After successful deployment, Terraform provides:
-- `bucket_name`: The name of the created S3 bucket
-- `website_endpoint`: The URL where your website is accessible
+## 🎨 Website Preview
+
+The website includes:
+- **Hero Section**: Eye-catching property showcases
+- **Property Listings**: Grid layout of available properties
+- **Contact Information**: Easy ways to reach out
+- **Responsive Navigation**: Mobile-friendly menu
+- **Professional Styling**: Modern villa aesthetic
+
+## 🔧 Technical Details
+
+For detailed technical information, see [README-TERRAFORM.md](README-TERRAFORM.md)
+
+## 🛡️ Security & Best Practices
+
+- ✅ **Public Access**: Properly configured for website hosting
+- ✅ **Bucket Policies**: Secure read-only access
+- ✅ **State Management**: Terraform state excluded from Git
+- ✅ **Content Types**: Proper MIME types for all files
+
+## 📊 Costs
+
+- **S3 Storage**: ~$0.023 per GB/month
+- **Data Transfer**: ~$0.09 per GB (first 1TB free)
+- **Total**: Typically < $1/month for small websites
 
 ## 🧹 Cleanup
 
-To destroy the infrastructure:
+To remove all resources:
 ```bash
 terraform destroy
 ```
-
-## 📝 Notes
-
-- This configuration uses individual resource blocks for each file upload, ensuring reliability
-- All Terraform state files are excluded from version control
-- The bucket name includes a random suffix to ensure uniqueness
-- Public access is required for static website hosting functionality
 
 ## 🤝 Contributing
 
@@ -117,9 +116,20 @@ terraform destroy
 4. Test the deployment
 5. Submit a pull request
 
+## 📞 Support
+
+If you encounter any issues:
+1. Check the [technical README](README-TERRAFORM.md)
+2. Review AWS S3 documentation
+3. Open an issue on GitHub
+
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+**Ready to deploy your villa website? Start with `terraform init` and `terraform apply`!** 🚀
 
 
 
