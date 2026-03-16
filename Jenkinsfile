@@ -18,7 +18,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 sh '''
-                    git clone https://github.com/devilraj98/Villa-website-hosting.git
+                    git branch: 'main', url: 'https://github.com/devilraj98/Villa-website-hosting.git'
                 '''
             }
         }
