@@ -26,7 +26,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
-                    cd Villa-website-hosting
+                
                     docker build -t ${IMAGE_NAME} .
                 '''
             }
