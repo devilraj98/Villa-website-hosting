@@ -1,6 +1,6 @@
 
 pipeline {
-    agent { label 'vinod' }
+    agent any
 
     environment {
         IMAGE_NAME = 'villa-website'
