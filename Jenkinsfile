@@ -4,7 +4,6 @@ pipeline {
 
     environment {
         IMAGE_NAME = 'villa-website'
-        CONTAINER_NAME = 'villa-website-container'
         PORT = '8000'
     }
 
@@ -42,15 +41,12 @@ pipeline {
                 }
             }
         }
-        stage('Stop Existing Container') {
+        stage('Deploy') {
             steps {
-                sh "docker rm -f ${CONTAINER_NAME} || true"
-            }
-        }
-
-        stage('Run Container') {
-            steps {
-                sh "docker run -d --name ${CONTAINER_NAME} -p ${PORT}:80 ${IMAGE_NAME}"
+                sh '''
+                    docker compose down --remove-orphans || true
+                    docker compose up -d
+                '''
             }
         }
     }

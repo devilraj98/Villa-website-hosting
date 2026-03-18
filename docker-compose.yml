@@ -1,0 +1,7 @@
+services:
+  villa-website:
+    image: villa-website:latest
+    container_name: villa-website-container
+    ports:
+      - "8000:80"
+    restart: unless-stopped
