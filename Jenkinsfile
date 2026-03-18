@@ -33,11 +33,11 @@ pipeline {
         }
         stage('Push to Docker Hub') {
             steps {
-                ls([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh '''
                         echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
                         docker tag ${IMAGE_NAME} $DOCKER_USERNAME/${IMAGE_NAME}:latest
-                      withCredentia  docker push $DOCKER_USERNAME/${IMAGE_NAME}:latest
+                        docker push $DOCKER_USERNAME/${IMAGE_NAME}:latest
                     '''
                 }
             }
