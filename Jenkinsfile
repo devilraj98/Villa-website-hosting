@@ -6,6 +6,8 @@ pipeline {
         IMAGE_NAME = 'villa-website'
         CONTAINER_NAME = 'villa-website-container'
         PORT = '8000'
+        DOCKER_USERNAME = credentials('dockerhub-username')
+        DOCKER_PASSWORD = credentials('dockerhub-password')
     }
 
     stages {
@@ -31,7 +33,17 @@ pipeline {
                 '''
             }
         }
-
+        Stage('Push to Docker Hub') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                    sh '''
+                        echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+                        docker tag ${IMAGE_NAME} $DOCKER_USERNAME/${IMAGE_NAME}:latest
+                        docker push $DOCKER_USERNAME/${IMAGE_NAME}:latest
+                    '''
+                }
+            }
+        }
         stage('Stop Existing Container') {
             steps {
                 sh "docker rm -f ${CONTAINER_NAME} || true"
@@ -53,6 +65,7 @@ pipeline {
             echo "❌ Deployment failed."
         }
     }
+
 
 }
 
