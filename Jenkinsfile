@@ -6,8 +6,6 @@ pipeline {
         IMAGE_NAME = 'villa-website'
         CONTAINER_NAME = 'villa-website-container'
         PORT = '8000'
-        DOCKER_USERNAME = credentials('dockerhub-username')
-        DOCKER_PASSWORD = credentials('dockerhub-password')
     }
 
     stages {
@@ -35,11 +33,11 @@ pipeline {
         }
         stage('Push to Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                ls([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh '''
                         echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
                         docker tag ${IMAGE_NAME} $DOCKER_USERNAME/${IMAGE_NAME}:latest
-                        docker push $DOCKER_USERNAME/${IMAGE_NAME}:latest
+                      withCredentia  docker push $DOCKER_USERNAME/${IMAGE_NAME}:latest
                     '''
                 }
             }
